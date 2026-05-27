@@ -1,6 +1,6 @@
 # Rico MD - 公众号 Markdown 编辑器
 
-一个面向微信公众号写作与排版的纯前端 Markdown 编辑器，支持实时预览、代码块主题、图片本地持久化与一键复制富文本。
+一个面向微信公众号写作与排版的纯前端 Markdown 编辑器，支持实时预览、代码块主题、GitHub Alerts、Task List、图片本地持久化、TOC 目录与一键复制富文本。同时也支持复制纯 Markdown 到知乎。
 
 
 ## 在线地址
@@ -24,7 +24,11 @@
 ### 1. 编辑与预览
 - 左侧 Markdown 编辑，右侧实时预览。
 - 支持常用编辑快捷操作（标题、加粗、斜体、引用、代码块、分割线、表格等）。
-- 支持桌面/手机预览模式切换。
+- 支持桌面/手机/平板预览模式切换。
+- 支持 Task List 语法 `- [x]` / `- [ ]`，渲染为带复选框的列表项。
+- 支持 GitHub Alerts 语法：`[!NOTE]`、`[!TIP]`、`[!IMPORTANT]`、`[!WARNING]`、`[!CAUTION]`。
+- 支持目录（TOC）功能，自动提取 h1/h2/h3 锚点，方便长文导航。
+- 支持字体缩放（0.75x ~ 1.5x，6 档），适配不同阅读偏好。
 
 ### 2. 文档管理
 - 支持多文档创建、切换、复制、删除、搜索。
@@ -44,6 +48,7 @@
   - **传统质感**：纸纪、晚点深度、金融时报、墨线·报纸、杂志
   - **设计灵感**：素白·留白、赭红·编辑、素灰·清水、赤陶·有机、墨蓝·卫报、朱红·日经、素墨·世界报
 - 代码面板支持独立代码主题（当前 16 套）。
+- 代码块显示项可独立配置：显示代码语言、显示复制按钮、显示 macOS 装饰点。
 
 
 ### 5. 图片处理（本地优先）
@@ -52,11 +57,14 @@
 - 编辑器内使用 `img://` 短链接，避免大段 Base64 影响输入性能。
 - 渲染时从 IndexedDB 读取并替换为可预览 URL。
 - 复制到公众号时自动转换为 Base64，提升粘贴兼容性。
+- 支持图片显示自定义：边距、圆角、阴影（颜色/偏移/模糊/透明度）。
 
 ### 6. 导出与复制
-- 一键复制到公众号（富文本 HTML）。
-- 支持复制纯文本。
-- 支持导出 `.md` 与 `.html`。
+- 一键复制到公众号（富文本 HTML，含图片 Base64、代码高亮、公式转换）。
+- 一键复制到知乎（纯 Markdown，本地图片自动移除并提示）。
+- 一键复制纯 Markdown。
+- 支持导出 `.md` 与 `.html`（含图片 Base64 嵌入）。
+- 支持导出/导入文档列表（JSON 格式），方便备份与迁移。
 
 ### 7. About 页面
 - 顶部导航新增"关于"，跳转到独立页面 `about.html`。
@@ -111,13 +119,19 @@ rico-md/
 │   ├── scripts/
 │   │   ├── main.js
 │   │   ├── core/
+│   │   │   ├── alerts-plugin.js
 │   │   │   ├── image-compressor.js
 │   │   │   ├── image-store.js
 │   │   │   ├── markdown-engine.js
 │   │   │   ├── paste-handler.js
-│   │   │   └── render-pipeline.js
+│   │   │   ├── render-pipeline.js
+│   │   │   └── task-lists-plugin.js
 │   │   ├── export/
-│   │   │   └── clipboard-exporter.js
+│   │   │   ├── clipboard-exporter.js
+│   │   │   ├── file-exporter.js
+│   │   │   ├── math-exporter.js
+│   │   │   ├── x-clipboard-exporter.js
+│   │   │   └── zhihu-clipboard-exporter.js
 │   │   ├── storage/
 │   │   │   └── preferences.js
 │   │   └── ui/

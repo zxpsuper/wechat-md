@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server 8081)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8081/assets/scripts/core/render-pipeline.js)",
+      "Bash(python -c \"import http.server; import socketserver; import threading; h = http.server.SimpleHTTPRequestHandler; s = socketserver.TCPServer\\(\\('', 8082\\), h\\); t = threading.Thread\\(target=s.serve_forever, daemon=True\\); t.start\\(\\); print\\('Server running on 8082'\\)\")",
+      "Bash(pkill -f \"python -m http.server 8080\")",
+      "Bash(python -m http.server 8080 --directory \"E:/github/wechat-md\")",
+      "Bash(py -3 --version)",
+      "Bash(py -3 -m http.server 8080 --directory \"E:/github/wechat-md\")",
+      "Bash(curl -s http://localhost:8080/)",
+      "Bash(pkill -f \"http.server 8080\")",
+      "Bash(curl -s http://localhost:8080/assets/scripts/core/task-lists-plugin.js)",
+      "Bash(node -e ' *)",
+      "Bash(node _replace_example.js)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const c=fs.readFileSync\\('assets/scripts/main.js','utf8'\\);console.log\\(c.includes\\('loadDefaultExample'\\)\\);console.log\\('escape check - backticks:', \\(c.match\\(/\\\\\\\\\\\\\\\\\\\\`/g\\)||[]\\).length\\);\")",
+      "Bash(node --check assets/scripts/main.js)",
+      "Bash(curl -s http://localhost:8080/assets/scripts/export/zhihu-clipboard-exporter.js)"
+    ]
+  }
+}

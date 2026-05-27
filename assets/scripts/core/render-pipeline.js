@@ -11,18 +11,19 @@ export async function renderPipeline({ markdown, md, imageStore, styleConfig, co
   const { preprocessMarkdown } = await import('./markdown-engine.js');
   const processedContent = preprocessMarkdown(markdown);
 
-  let html = md.render(processedContent);
+  const html = md.render(processedContent);
 
-  if (imageStore) {
-    html = await processImageProtocol(html, imageStore);
-  }
-
-  return applyInlineStyles(html, styleConfig, codeTheme, displaySettings);
-}
-
-async function processImageProtocol(html, imageStore) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, 'text/html');
+
+  if (imageStore) {
+    await processDocumentImages(doc, imageStore);
+  }
+
+  return applyInlineStyles(doc, styleConfig, codeTheme, displaySettings);
+}
+
+async function processDocumentImages(doc, imageStore) {
   const images = doc.querySelectorAll('img');
 
   for (const img of images) {
@@ -41,16 +42,12 @@ async function processImageProtocol(html, imageStore) {
       img.setAttribute('alt', '图片加载失败');
     }
   }
-
-  return doc.body.innerHTML;
 }
 
-function applyInlineStyles(html, styleConfig, codeTheme, displaySettings) {
+function applyInlineStyles(doc, styleConfig, codeTheme, displaySettings) {
   const style = styleConfig.styles;
   const fontScale = Number(displaySettings?.fontScale) || 1;
   const scaledStyle = fontScale !== 1 ? scaleStyleFontSizes(style, fontScale) : style;
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
 
   annotateMathFormulaNodes(doc);
   groupConsecutiveImages(doc);
@@ -67,6 +64,7 @@ function applyInlineStyles(html, styleConfig, codeTheme, displaySettings) {
   });
 
   applyImageGridThemeStyles(doc, scaledStyle);
+  applyAlertInlineStyles(doc);
   normalizeTableOverflow(doc);
   applyInlineCodeStyles(doc, scaledStyle);
   applyStandalonePreStyles(doc, scaledStyle);
@@ -121,6 +119,39 @@ function applyImageGridThemeStyles(doc, style) {
         appendStyleText(img, imageOnlyStyle);
       }
     });
+  });
+}
+
+const ALERT_STYLES = {
+  note: { borderColor: '#388bfd', bg: 'rgba(56,139,253,0.04)', titleColor: '#388bfd' },
+  tip: { borderColor: '#3fb950', bg: 'rgba(63,185,80,0.04)', titleColor: '#3fb950' },
+  important: { borderColor: '#a371f7', bg: 'rgba(163,113,247,0.04)', titleColor: '#a371f7' },
+  warning: { borderColor: '#d29922', bg: 'rgba(210,153,34,0.04)', titleColor: '#d29922' },
+  caution: { borderColor: '#f85149', bg: 'rgba(248,81,73,0.04)', titleColor: '#f85149' }
+};
+
+function applyAlertInlineStyles(doc) {
+  doc.querySelectorAll('.markdown-alert').forEach((alert) => {
+    const classes = Array.from(alert.classList);
+    let type = 'note';
+    for (const cls of classes) {
+      const match = cls.match(/^markdown-alert-(note|tip|important|warning|caution)$/);
+      if (match) { type = match[1]; break; }
+    }
+
+    const colors = ALERT_STYLES[type] || ALERT_STYLES.note;
+    appendStyleText(alert,
+      'padding: 12px 16px !important; margin: 16px 0 !important; border-left: 4px solid ' + colors.borderColor +
+      ' !important; border-radius: 4px !important; background: ' + colors.bg +
+      ' !important;'
+    );
+
+    const title = alert.querySelector('.markdown-alert-title');
+    if (title) {
+      appendStyleText(title,
+        'font-weight: 600 !important; font-size: 14px !important; margin-bottom: 8px !important; color: ' + colors.titleColor + ' !important;'
+      );
+    }
   });
 }
 

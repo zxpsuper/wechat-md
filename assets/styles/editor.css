@@ -260,6 +260,24 @@
   color: var(--color-text-tertiary);
 }
 
+.zhihu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: var(--color-surface-base);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-xs);
+}
+
+.zhihu-btn:hover {
+  background: #1772f0;
+}
+
+.zhihu-btn:disabled {
+  background: var(--color-border-default);
+  color: var(--color-text-tertiary);
+}
+
 /* ── Preview Content ── */
 .preview-content {
   flex: 1;
@@ -405,6 +423,147 @@
 .empty-state p {
   font-size: 14px;
   color: var(--color-tertiary);
+}
+
+/* ── GitHub Alerts ── */
+.markdown-alert {
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-4) 0;
+  border-left: 4px solid;
+  border-radius: var(--radius-xs);
+  background: var(--color-surface);
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-2);
+}
+
+.markdown-alert p {
+  margin: var(--space-2) 0;
+}
+
+.markdown-alert p:first-of-type {
+  margin-top: 0;
+}
+
+.markdown-alert p:last-child {
+  margin-bottom: 0;
+}
+
+/* Note - Blue */
+.markdown-alert-note {
+  border-color: #388bfd;
+  background: #388bfd10;
+}
+
+.markdown-alert-title-note {
+  color: #388bfd;
+}
+
+/* Tip - Green */
+.markdown-alert-tip {
+  border-color: #3fb950;
+  background: #3fb95010;
+}
+
+.markdown-alert-title-tip {
+  color: #3fb950;
+}
+
+/* Important - Purple */
+.markdown-alert-important {
+  border-color: #a371f7;
+  background: #a371f710;
+}
+
+.markdown-alert-title-important {
+  color: #a371f7;
+}
+
+/* Warning - Yellow/Orange */
+.markdown-alert-warning {
+  border-color: #d29922;
+  background: #d2992210;
+}
+
+.markdown-alert-title-warning {
+  color: #d29922;
+}
+
+/* Caution - Red */
+.markdown-alert-caution {
+  border-color: #f85149;
+  background: #f8514910;
+}
+
+.markdown-alert-title-caution {
+  color: #f85149;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .markdown-alert-note {
+    border-color: #58a6ff;
+    background: #58a6ff10;
+  }
+
+  .markdown-alert-title-note {
+    color: #58a6ff;
+  }
+
+  .markdown-alert-tip {
+    border-color: #56d364;
+    background: #56d36410;
+  }
+
+  .markdown-alert-title-tip {
+    color: #56d364;
+  }
+
+  .markdown-alert-important {
+    border-color: #bc8cff;
+    background: #bc8cff10;
+  }
+
+  .markdown-alert-title-important {
+    color: #bc8cff;
+  }
+
+  .markdown-alert-warning {
+    border-color: #e3b341;
+    background: #e3b34110;
+  }
+
+  .markdown-alert-title-warning {
+    color: #e3b341;
+  }
+
+  .markdown-alert-caution {
+    border-color: #ff7b72;
+    background: #ff7b7210;
+  }
+
+  .markdown-alert-title-caution {
+    color: #ff7b72;
+  }
+}
+
+/* ── Task Lists ── */
+.task-list-item {
+  list-style: none !important;
+  margin-left: -1.5em;
+}
+
+.task-list-item input[type="checkbox"] {
+  margin-right: 0.5em;
+  transform: scale(1.1);
+  vertical-align: middle;
+  pointer-events: none;
 }
 
 /* ── Responsive ── */

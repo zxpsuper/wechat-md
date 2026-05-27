@@ -161,7 +161,7 @@ function buildRules(language, palette) {
   if (resolvedLanguage === 'html') {
     rules.push(
       { pattern: /&lt;!--[\s\S]*?--&gt;/g, token: 'comment', fontStyle: 'italic' },
-      { pattern: /(&lt;\/?)([a-zA-Z][\w:-]*)/g, token: 'tag', captureIndex: 2, fontWeight: '600' },
+      { pattern: /&lt;\/?[a-zA-Z][\w:-]*/g, token: 'tag', fontWeight: '600' },
       { pattern: /\b([a-zA-Z_:][-a-zA-Z0-9_:.]*)(=)(&quot;[^"]*&quot;|&#39;[^']*&#39;)/g, token: 'attribute' },
       { pattern: /&quot;[^"]*&quot;|&#39;[^']*&#39;/g, token: 'string' }
     );
@@ -199,6 +199,7 @@ function buildRules(language, palette) {
       { pattern: /\b[A-Z][A-Za-z0-9_]*(?=\b)/g, token: 'class' },
       { pattern: /\b[a-zA-Z_$][\w$]*(?=\s*\()/g, token: 'function', fontWeight: '600' },
       { pattern: /\b[a-zA-Z_$][\w$]*(?=\s*:)/g, token: resolvedLanguage === 'json' ? 'property' : 'attr' },
+      { pattern: /&(?:amp|lt|gt|quot|#\d+|#[xX][\da-fA-F]+);/g, token: 'entity' },
       { pattern: GENERIC_OPERATORS, token: 'operator' },
       { pattern: GENERIC_PUNCTUATION, token: 'punctuation' }
     );

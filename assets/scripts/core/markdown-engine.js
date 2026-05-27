@@ -3,6 +3,9 @@
  * @module markdown-engine
  */
 
+import alertsPlugin from './alerts-plugin.js';
+import taskListsPlugin from './task-lists-plugin.js';
+
 const EMPHASIS_MARKERS = new Set([0x2A, 0x5F, 0x7E]);
 
 function isCjkLetter(charCode) {
@@ -107,6 +110,8 @@ export function createMarkdownEngine() {
 
   patchMarkdownScanner(md);
   registerMathPlugin(md);
+  md.use(alertsPlugin);
+  md.use(taskListsPlugin);
 
   md.renderer.rules.fence = (tokens, idx) => {
     const token = tokens[idx];

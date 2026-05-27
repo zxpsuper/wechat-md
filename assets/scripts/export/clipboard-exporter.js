@@ -447,9 +447,16 @@ function flattenListItems(doc) {
 
     const clone = item.cloneNode(true);
     replaceFormulaNodesWithPlainText(clone);
+
+    // Preserve task list checkbox state
+    const checkbox = clone.querySelector('input[type="checkbox"]');
+    const prefix = checkbox
+      ? (checkbox.checked ? '☑️ ' : '⬜ ')
+      : '';
+
     const text = (clone.textContent || '').replace(/\s+/g, ' ').trim();
     item.innerHTML = '';
-    item.textContent = text;
+    item.textContent = prefix + text;
   });
 }
 
@@ -601,6 +608,58 @@ function normalizeBlockquotes(doc) {
   });
 }
 
+const ALERT_STYLES = {
+  note: { borderColor: '#388bfd', bg: 'rgba(56,139,253,0.04)', titleColor: '#388bfd' },
+  tip: { borderColor: '#3fb950', bg: 'rgba(63,185,80,0.04)', titleColor: '#3fb950' },
+  important: { borderColor: '#a371f7', bg: 'rgba(163,113,247,0.04)', titleColor: '#a371f7' },
+  warning: { borderColor: '#d29922', bg: 'rgba(210,153,34,0.04)', titleColor: '#d29922' },
+  caution: { borderColor: '#f85149', bg: 'rgba(248,81,73,0.04)', titleColor: '#f85149' }
+};
+
+function normalizeAlertsForWechat(doc) {
+  doc.querySelectorAll('.markdown-alert').forEach((alert) => {
+    const classes = Array.from(alert.classList);
+    let type = 'note';
+    for (const cls of classes) {
+      const match = cls.match(/^markdown-alert-(note|tip|important|warning|caution)$/);
+      if (match) { type = match[1]; break; }
+    }
+
+    const colors = ALERT_STYLES[type] || ALERT_STYLES.note;
+
+    // Extract title text and content
+    const titleEl = alert.querySelector('.markdown-alert-title');
+    const titleText = titleEl ? titleEl.textContent || '' : '';
+
+    const blockquote = doc.createElement('blockquote');
+    blockquote.setAttribute('style',
+      'padding: 12px 16px; margin: 16px 0; border-left: 4px solid ' + colors.borderColor +
+      '; background: ' + colors.bg + ';'
+    );
+
+    if (titleText) {
+      const titleDiv = doc.createElement('div');
+      titleDiv.setAttribute('style',
+        'font-weight: 600; font-size: 14px; margin-bottom: 6px; color: ' + colors.titleColor + ';'
+      );
+      titleDiv.textContent = titleText;
+      blockquote.appendChild(titleDiv);
+    }
+
+    // Move remaining child nodes (p, etc.) into blockquote
+    while (alert.firstChild) {
+      const child = alert.firstChild;
+      if (child === titleEl || child.classList?.contains('markdown-alert-title')) {
+        alert.removeChild(child);
+        continue;
+      }
+      blockquote.appendChild(child);
+    }
+
+    alert.parentNode.replaceChild(blockquote, alert);
+  });
+}
+
 function normalizeTablesForWechat(doc) {
   const wrappedTables = doc.querySelectorAll('.md-table-scroll > table');
   wrappedTables.forEach((table) => {
@@ -725,6 +784,7 @@ export async function copyToWechat({ renderedHTML, styleConfig, imageStore, show
     convertOrderedListsToWechatParagraphs(doc, styleConfig);
     normalizeListTypographyForWechat(doc, styleConfig);
     normalizeBlockquotes(doc);
+    normalizeAlertsForWechat(doc);
     wrapSectionIfNeeded(doc, styleConfig);
 
     const text = buildClipboardPlainText(doc);
