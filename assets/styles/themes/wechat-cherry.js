@@ -7,7 +7,7 @@
 export const theme = {
   "name": "樱桃红",
   "styles": {
-    "container": "max-width: 100%; margin: 0 auto; padding: 20px 16px 48px 16px; font-family: \"LXGW WenKai\", \"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", serif; font-size: 16px; line-height: 1.9 !important; color: #2c2c2c !important; background-color: #fff !important; word-wrap: break-word; letter-spacing: 0.05em;",
+    "container": "max-width: 100%; margin: 0 auto; font-family: \"LXGW WenKai\", \"PingFang SC\", \"Microsoft YaHei\", \"Hiragino Sans GB\", serif; font-size: 16px; line-height: 1.9 !important; color: #2c2c2c !important; background-color: #fff !important; word-wrap: break-word; letter-spacing: 0.05em;",
     "h1": "font-size: 28px; font-weight: 700; color: #aa1141 !important; line-height: 1.4 !important; margin: 36px 0 22px; text-align: center; letter-spacing: 0.03em; position: relative; padding-bottom: 14px; border-bottom: 1px solid #e8b4b4;",
     "h2": "width: fit-content;font-size: 22px; font-weight: 700; color: #ffffff !important; line-height: 1.5 !important; margin: 30px 0 18px; padding: 8px 18px; border-radius: 8px; background:  linear-gradient(to right, #b41919, #ea68b6, #b41919)!important; letter-spacing: 0.02em;box-shadow: 0 2px 5px rgba(61, 184, 211, 0.15);transition: background-position 0.5s ease-out, transform 0.4s ease, box-shadow 0.4s ease;background-size: 200% auto!important;background-position: 0% center;",
     "h3": "font-size: 19px; font-weight: 600; color: #000000 !important; line-height: 1.45 !important; margin: 26px 0 14px; padding-left: 14px; border-left: 4px solid #d4604a; letter-spacing: 0.01em;",

@@ -6,7 +6,7 @@
 export const theme = {
   "name": "掘金",
   "styles": {
-    "container": "max-width: 100%; margin: 0 auto; padding: 20px 16px 48px 16px; font-family: \"PingFang SC\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-size: 16px; line-height: 1.8 !important; color: #334155 !important; background-color: #fff !important; word-wrap: break-word; letter-spacing: 0.01em;",
+    "container": "max-width: 100%; margin: 0 auto;font-family: \"PingFang SC\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; font-size: 16px; line-height: 1.8 !important; color: #334155 !important; background-color: #fff !important; word-wrap: break-word; letter-spacing: 0.01em;",
     "h1": "font-size: 26px; font-weight: 800; color: #0f172a !important; line-height: 1.3 !important; margin: 36px 0 20px; letter-spacing: -0.02em;",
     "h2": "font-size: 22px; font-weight: 700; color: #0f172a !important; line-height: 1.35 !important; margin: 32px 0 16px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; letter-spacing: -0.015em;",
     "h3": "font-size: 19px; font-weight: 600; color: #0f172a !important; line-height: 1.4 !important; margin: 28px 0 14px; letter-spacing: -0.01em;",

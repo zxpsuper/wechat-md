@@ -6,7 +6,7 @@
 export const theme = {
   "name": "纸纪",
   "styles": {
-    "container": "max-width: 100%;  margin: 0 auto; padding: 24px 16px 32px 16px; font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif; font-size: 15px; line-height: 1.9 !important; color: #4a4a45 !important; background-color: rgba(26, 26, 24, 0.02) !important; word-wrap: break-word;",
+    "container": "max-width: 100%;  margin: 0 auto; font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', -apple-system, sans-serif; font-size: 15px; line-height: 1.9 !important; color: #4a4a45 !important; background-color: rgba(26, 26, 24, 0.02) !important; word-wrap: break-word;",
     "h1": "font-family: 'Noto Serif SC', 'Songti SC', STSong, Georgia, serif; font-size: 26px; font-weight: 700; color: #cf4436 !important; line-height: 1.4 !important; margin: 32px 0 24px; word-break: break-all;",
     "h2": "font-family: 'Noto Serif SC', 'Songti SC', STSong, Georgia, serif; font-size: 22px; font-weight: 700; color: #cf4436 !important; line-height: 1.4 !important; margin: 28px 0 20px; word-break: break-all;",
     "h3": "font-family: 'Noto Serif SC', 'Songti SC', STSong, Georgia, serif; font-size: 19px; font-weight: 700; color: #1a1a18 !important; line-height: 1.4 !important; margin: 24px 0 16px; word-break: break-all;",

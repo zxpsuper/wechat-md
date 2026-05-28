@@ -6,7 +6,7 @@
 export const theme = {
   "name": "LaTeX",
   "styles": {
-    "container": "max-width: 100%; margin: 0 auto; padding: 24px 16px 56px 16px; font-family: \"Latin Modern Roman\", \"New Computer Modern\", Georgia, \"Times New Roman\", \"Songti SC\", \"STSong\", SimSun, \"Source Han Serif SC\", \"Noto Serif CJK SC\", serif; font-size: 16px; line-height: 1.6 !important; color: #000000 !important; background-color: #ffffff !important; word-wrap: break-word;",
+    "container": "max-width: 100%; margin: 0 auto; font-family: \"Latin Modern Roman\", \"New Computer Modern\", Georgia, \"Times New Roman\", \"Songti SC\", \"STSong\", SimSun, \"Source Han Serif SC\", \"Noto Serif CJK SC\", serif; font-size: 16px; line-height: 1.6 !important; color: #000000 !important; background-color: #ffffff !important; word-wrap: break-word;",
     "h1": "font-size: 26px; font-weight: normal; color: #000000 !important; line-height: 1.3 !important; margin: 28px 0 36px; text-align: center; letter-spacing: 0.02em;",
     "h2": "font-size: 22px; font-weight: bold; color: #000000 !important; line-height: 1.3 !important; margin: 40px 0 18px;",
     "h3": "font-size: 19px; font-weight: bold; color: #000000 !important; line-height: 1.35 !important; margin: 32px 0 14px;",
