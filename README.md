@@ -1,22 +1,22 @@
-# Rico MD - 公众号 Markdown 编辑器
+# Suporka MD - 公众号 Markdown 编辑器
 
 一个面向微信公众号写作与排版的纯前端 Markdown 编辑器，支持实时预览、代码块主题、GitHub Alerts、Task List、图片本地持久化、TOC 目录与一键复制富文本。
 
 
 ## 在线地址
 
-- [https://md.ricoui.com](https://md.ricoui.com/)
+- [https://markdown.suporka.site](https://markdown.suporka.site)
 
 
 ## 仓库地址：
 
-- https://github.com/ricocc/rico-md/
+- https://github.com/zxpsuper/wechat-md/
 
 ## Screenshot
 
-![](./assets/images/cover-index.jpg)
+![](./assets/images/cover-index.webp)
 
-![](./assets/images/cover-setting.jpg)
+![](./assets/images/cover-setting.webp)
 
 
 ## 核心能力
@@ -42,12 +42,12 @@
 - 保留显式保存快捷键：`Ctrl/Cmd + S`。
 
 ### 4. 主题与代码面板
-- 内置多套公众号排版主题（当前 20 套），按风格分类：
-  - **简约主义**：默认、极简、科技、优雅简约、沉浸阅读、Jony Ive
-  - **技术阅读**：Anthropic、Wired、Medium 阅读、Apple 极简、AI Coder
-  - **传统质感**：纸纪、晚点深度、金融时报、墨线·报纸、杂志
+- 内置多套公众号排版主题（当前 27 套），按风格分类：
+  - **简约主义**：默认公众号风格、简约沉浸、技术风格、优雅简约、深度阅读、纤细极简
+  - **技术阅读**：Claude、掘金、GitHub、Vue、Medium 阅读、Apple 极简
+  - **传统质感**：Kami 纸、纸纪、编辑部红、金融时报、墨线·报纸、LaTeX、Ivory、樱桃红
   - **设计灵感**：素白·留白、赭红·编辑、素灰·清水、赤陶·有机、墨蓝·卫报、朱红·日经、素墨·世界报
-- 代码面板支持独立代码主题（当前 16 套）。
+- 代码面板支持独立代码主题（当前 17 套，含跟随主题风格选项）。
 - 代码块显示项可独立配置：显示代码语言、显示复制按钮、显示 macOS 装饰点。
 
 
@@ -57,17 +57,13 @@
 - 编辑器内使用 `img://` 短链接，避免大段 Base64 影响输入性能。
 - 渲染时从 IndexedDB 读取并替换为可预览 URL。
 - 复制到公众号时自动转换为 Base64，提升粘贴兼容性。
-- 支持图片显示自定义：边距、圆角、阴影（颜色/偏移/模糊/透明度）。
+- 支持图片显示自定义：上下边距、圆角（圆角/正圆）、阴影（颜色/偏移/模糊/透明度/扩散）。
 
 ### 6. 导出与复制
 - 一键复制到公众号（富文本 HTML，含图片 Base64、代码高亮、公式转换）。
 - 一键复制纯 Markdown。
 - 支持导出 `.md` 与 `.html`（含图片 Base64 嵌入）。
 - 支持导出/导入文档列表（JSON 格式），方便备份与迁移。
-
-### 7. About 页面
-- 顶部导航新增"关于"，跳转到独立页面 `about.html`。
-- 页面包含作者介绍、标签、知识库链接与联系方式二维码展示。
 
 ## 技术栈
 
@@ -83,7 +79,7 @@
 
 ```bash
 # 进入项目目录
-cd rico-md
+cd wechat-md
 
 # 启动本地静态服务
 python -m http.server 8080
@@ -101,51 +97,47 @@ python -m http.server 8080
 ## 项目结构（当前）
 
 ```text
-rico-md/
-├── index.html
-├── about.html
+wechat-md/
+├── index.html              # 主应用页面
+├── about.html              # 关于页面
 ├── README.md
 ├── LICENSE
-├── start.sh
+├── start.sh                # 本地启动脚本
 ├── assets/
 │   ├── images/
-│   │   ├── favicon.png
+│   │   ├── favicon.ico
 │   │   ├── icon.svg
-│   │   ├── logo.png
-│   │   ├── wechat.png
-│   │   ├── wx.jpg
-│   │   └── zanshangma.jpg
+│   │   ├── cover-index.webp
+│   │   └── cover-setting.webp
 │   ├── scripts/
-│   │   ├── main.js
+│   │   ├── main.js                 # 应用入口
 │   │   ├── core/
-│   │   │   ├── alerts-plugin.js
-│   │   │   ├── image-compressor.js
-│   │   │   ├── image-store.js
-│   │   │   ├── markdown-engine.js
-│   │   │   ├── paste-handler.js
-│   │   │   ├── render-pipeline.js
-│   │   │   └── task-lists-plugin.js
+│   │   │   ├── alerts-plugin.js    # GitHub Alerts 插件
+│   │   │   ├── image-compressor.js # Canvas 图片压缩
+│   │   │   ├── image-store.js      # IndexedDB 图片存储
+│   │   │   ├── markdown-engine.js  # Markdown 渲染引擎
+│   │   │   ├── paste-handler.js    # 粘贴处理
+│   │   │   ├── render-pipeline.js  # 渲染管线
+│   │   │   └── task-lists-plugin.js# Task List 插件
 │   │   ├── export/
-│   │   │   ├── clipboard-exporter.js
-│   │   │   ├── file-exporter.js
-│   │   │   ├── math-exporter.js
-│   │   │   └── x-clipboard-exporter.js
+│   │   │   ├── clipboard-exporter.js   # 公众号富文本复制
+│   │   │   ├── file-exporter.js        # .md/.html 文件导出
+│   │   │   ├── math-exporter.js        # 数学公式导出
+│   │   │   └── x-clipboard-exporter.js # X(Twitter) 兼容复制
 │   │   ├── storage/
-│   │   │   └── preferences.js
+│   │   │   └── preferences.js     # 用户偏好持久化
 │   │   └── ui/
-│   │       ├── code-themes.js
-│   │       ├── panel-manager.js
-│   │       ├── theme-manager.js
-│   │       └── toast.js
+│   │       ├── code-themes.js     # 代码主题配置（17 套）
+│   │       ├── panel-manager.js   # 面板状态管理
+│   │       ├── theme-manager.js   # 主题管理/分类/收藏
+│   │       └── toast.js           # 提示通知
 │   └── styles/
-│       ├── base.css
-│       ├── editor.css
-│       ├── panel.css
+│       ├── base.css               # 基础样式
+│       ├── editor.css             # 编辑器与预览样式
+│       ├── panel.css              # 面板/设置样式
 │       └── themes/
-│           ├── index.js
-│           └── *.js（主题定义）
-└── docs/
-    └── ...
+│           ├── index.js           # 主题注册入口
+│           └── *.js               # 排版主题定义文件
 ```
 
 ## 兼容性说明
@@ -171,31 +163,8 @@ rico-md/
 
 ## 作者
 
-**Rico**
-- 个人网站：[https://ricoui.com](https://ricoui.com)
-- X（推特）：[@ricouii](https://x.com/ricouii)
-- GitHub：[@ricocc](https://github.com/ricocc)
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="assets/images/wx.jpg" width="320" alt="公众号：Rico的设计漫想"><br/>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="assets/images/wechat.png" width="160" alt="个人微信"><br>
-      <sub>个人微信</sub>
-    </td>
-    <td align="center">
-      <img src="assets/images/zanshangma.jpg" width="160" alt="打赏码"><br>
-      <sub>打赏支持</sub>
-    </td>
-  </tr>
-</table>
+**zhengxiaopeng**
+- Website: [https://suporka.site](https://suporka.site) 
 
 ## 开源协议
 
@@ -209,17 +178,10 @@ rico-md/
 
 ## 致谢
 
-- 感谢原项目 [huasheng_editor](https://github.com/alchaincyf/huasheng_editor) 的作者花生
-
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=ricocc/rico-md&type=Date)](https://star-history.com/#ricocc/rico-md&Date)
+- 感谢原项目 [rico-md](https://github.com/ricocc/rico-md) 的作者 ricocc
 
 ---
 
 <div align="center">
-  Made with ❤️ by <a href="https://ricoui.com">Rico</a>
-  <br>
   如果觉得有用，请给个 ⭐ Star 支持一下！
 </div>

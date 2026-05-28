@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Rico MD - 公众号 Markdown 编辑器 - 启动脚本
+# Suporka MD - 公众号 Markdown 编辑器 - 启动脚本
 
-echo "📝 Rico MD - 公众号 Markdown 编辑器"
+echo "📝 Suporka MD - 公众号 Markdown 编辑器"
 echo "================================"
 echo ""
 echo "🌐 服务器地址: http://localhost:8080/"
