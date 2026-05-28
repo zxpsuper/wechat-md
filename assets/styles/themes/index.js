@@ -25,6 +25,12 @@ import { theme as lemonde } from './lemonde.js';
 import { theme as minimalism } from './minimalism.js';
 import { theme as wechatPaperpress } from './wechat-paperpress.js';
 import { theme as kamiPaper } from './kami-paper.js';
+import { theme as wechatJuejin } from './wechat-juejin.js';
+import { theme as wechatGithub } from './wechat-github.js';
+import { theme as wechatVue } from './wechat-vue.js';
+import { theme as wechatLatex } from './wechat-latex.js';
+import { theme as wechatIvory } from './wechat-ivory.js';
+import { theme as wechatCherry } from './wechat-cherry.js';
 
 /**
  * 所有主题样式配置
@@ -52,4 +58,10 @@ export const STYLES = {
   'minimalism': minimalism,
   'wechat-paperpress': wechatPaperpress,
   'kami-paper': kamiPaper,
+  'wechat-juejin': wechatJuejin,
+  'wechat-github': wechatGithub,
+  'wechat-vue': wechatVue,
+  'wechat-latex': wechatLatex,
+  'wechat-ivory': wechatIvory,
+  'wechat-cherry': wechatCherry,
 };

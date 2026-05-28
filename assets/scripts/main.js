@@ -9,7 +9,6 @@ import { createMarkdownEngine } from './core/markdown-engine.js';
 import { createTurndownService, createPasteHandler } from './core/paste-handler.js';
 import { renderPipeline } from './core/render-pipeline.js';
 import { copyToWechat } from './export/clipboard-exporter.js';
-import { copyToZhihu } from './export/zhihu-clipboard-exporter.js';
 import { copyToX } from './export/x-clipboard-exporter.js';
 import { exportMarkdownWithImages, exportHTMLWithImages, replaceImageUrlsWithBase64 } from './export/file-exporter.js';
 import { getCategorizedThemes, getStyleName, isRecommended, getStarredStyles, toggleStarStyle } from './ui/theme-manager.js';
@@ -768,16 +767,6 @@ async function copyToTwitter() {
   });
 }
 
-async function copyToZhihuHandler() {
-  if (!markdownInput.value?.trim()) {
-    showToast('没有内容可复制', 'error');
-    return;
-  }
-  await copyToZhihu({
-    markdownContent: markdownInput.value,
-    showToast: (message, type) => toast.show(message, type)
-  });
-}
 
 function selectTheme(key) {
   currentStyle.value = key;
@@ -1573,8 +1562,7 @@ const app = createApp({
       toggleToc,
       scrollToTocHeading,
       doCopy,
-      copyToZhihu: copyToZhihuHandler,
-      copyToTwitter,
+            copyToTwitter,
       onPaste,
       handleDrop,
       handleDragOver,

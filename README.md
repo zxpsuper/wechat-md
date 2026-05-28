@@ -1,6 +1,6 @@
 # Rico MD - 公众号 Markdown 编辑器
 
-一个面向微信公众号写作与排版的纯前端 Markdown 编辑器，支持实时预览、代码块主题、GitHub Alerts、Task List、图片本地持久化、TOC 目录与一键复制富文本。同时也支持复制纯 Markdown 到知乎。
+一个面向微信公众号写作与排版的纯前端 Markdown 编辑器，支持实时预览、代码块主题、GitHub Alerts、Task List、图片本地持久化、TOC 目录与一键复制富文本。
 
 
 ## 在线地址
@@ -61,7 +61,6 @@
 
 ### 6. 导出与复制
 - 一键复制到公众号（富文本 HTML，含图片 Base64、代码高亮、公式转换）。
-- 一键复制到知乎（纯 Markdown，本地图片自动移除并提示）。
 - 一键复制纯 Markdown。
 - 支持导出 `.md` 与 `.html`（含图片 Base64 嵌入）。
 - 支持导出/导入文档列表（JSON 格式），方便备份与迁移。
@@ -130,8 +129,7 @@ rico-md/
 │   │   │   ├── clipboard-exporter.js
 │   │   │   ├── file-exporter.js
 │   │   │   ├── math-exporter.js
-│   │   │   ├── x-clipboard-exporter.js
-│   │   │   └── zhihu-clipboard-exporter.js
+│   │   │   └── x-clipboard-exporter.js
 │   │   ├── storage/
 │   │   │   └── preferences.js
 │   │   └── ui/

@@ -8,7 +8,7 @@
   <meta name="keywords" content="公众号编辑器,Markdown编辑器,微信排版,Markdown转公众号,富文本复制">
   <meta name="author" content="Suporka MD">
 
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.ico">
   <link rel="stylesheet" href="assets/styles/base.css">
   <link rel="stylesheet" href="assets/styles/editor.css">
   <link rel="stylesheet" href="assets/styles/panel.css">
@@ -44,7 +44,7 @@
           <svg class="lucide lucide-panel-left-open" style="width:22px;height:22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 3v18"></path><path d="m14 9 3 3-3 3"></path></svg>
         </button>
         <div class="logo">
-          <img src="https://avatars.githubusercontent.com/u/28730619?s=48&v=4" alt="">
+          <img src="./assets/images/favicon.ico" alt="">
           <span>Suporka MD</span>
         </div>
       </div>
@@ -241,10 +241,7 @@
                 <button class="copy-btn twitter-btn" :disabled="!renderedContent" @click="copyToTwitter" title="复制到 X" style="display:none">
                   复制到 X
                 </button>
-                <button class="copy-btn zhihu-btn" :disabled="!renderedContent" @click="copyToZhihu" title="复制到知乎">
-                  复制到知乎
-                </button>
-                <button class="copy-btn" :class="{ success: copySuccess }" :disabled="!renderedContent" @click="doCopy">
+                                <button class="copy-btn" :class="{ success: copySuccess }" :disabled="!renderedContent" @click="doCopy">
                   <svg class="lucide lucide-copy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                   {{ copySuccess ? '已复制' : '复制到公众号' }}
                 </button>
@@ -664,6 +661,13 @@
                 <div><kbd>Ctrl</kbd>+<kbd>I</kbd> 斜体</div>
                 <div><kbd>Ctrl</kbd>+<kbd>K</kbd> 链接</div>
                 <div><kbd>Tab</kbd> 缩进</div>
+              </div>
+            </div>
+            <div class="panel-settings-group">
+              <div class="settings-label">友情链接</div>
+              <div class="settings-links">
+                <a style="color: var(--color-text-tertiary);" href="https://suporka.site" target="_blank" rel="noopener" class="settings-link">小皮咖</a>
+                <a style="color: var(--color-text-tertiary);" href="https://resource.suporka.site" target="_blank" rel="noopener" class="settings-link">小皮咖驿站</a>
               </div>
             </div>
           </div>

@@ -260,23 +260,6 @@
   color: var(--color-text-tertiary);
 }
 
-.zhihu-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  background: var(--color-surface-base);
-  color: var(--color-text-inverse);
-  border-radius: var(--radius-xs);
-}
-
-.zhihu-btn:hover {
-  background: #1772f0;
-}
-
-.zhihu-btn:disabled {
-  background: var(--color-border-default);
-  color: var(--color-text-tertiary);
-}
 
 /* ── Preview Content ── */
 .preview-content {

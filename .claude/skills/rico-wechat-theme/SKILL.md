@@ -86,8 +86,10 @@ description: 从公众号文章链接中提取排版样式，生成可复用的�
 
 输出内容包含：
 1. **主题文件内容**：完整的 JS 文件代码，格式参照现有主题文件（如 `wechat-anthropic.js`）
-2. **文件保存位置**：提示用户将文件保存到项目的 `themes/` 目录
-3. **注册提示**：提醒用户在 `index.js` 中添加 import 和 STYLES 条目
+2. **文件保存位置**：将文件保存到项目的 `assets/styles/themes/` 目录
+3. **注册主题**：
+   - 在 `assets/styles/themes/index.js` 中添加 import 和 STYLES 条目
+   - 在 `assets/scripts/ui/theme-manager.js` 的 `THEME_CATEGORIES` 中找到合适的分类，将主题 key 添加到对应数组中
 
 ### 输出主题文件格式
 
