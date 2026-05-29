@@ -6,7 +6,7 @@
 export const theme = {
   "name": "Github",
   "styles": {
-    "container": "max-width: 100%; margin: 0 auto; font-family: \"Open Sans\", \"Clear Sans\", \"Helvetica Neue\", Helvetica, Arial, \"Segoe UI Emoji\", sans-serif; font-size: 16px; line-height: 1.6 !important; color: #333 !important; background-color: #fff !important; word-wrap: break-word;",
+    "container": "max-width: 100%; margin: 0 auto; padding: 20px 16px 48px 16px; font-family: \"Open Sans\", \"Clear Sans\", \"Helvetica Neue\", Helvetica, Arial, \"Segoe UI Emoji\", sans-serif; font-size: 16px; line-height: 1.6 !important; color: #333 !important; background-color: #fff !important; word-wrap: break-word;",
     "h1": "font-size: 26px; font-weight: bold; color: #333 !important; line-height: 1.3 !important; margin: 24px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #eee;",
     "h2": "font-size: 22px; font-weight: bold; color: #333 !important; line-height: 1.3 !important; margin: 22px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #eee;",
     "h3": "font-size: 19px; font-weight: bold; color: #333 !important; line-height: 1.4 !important; margin: 20px 0 12px;",

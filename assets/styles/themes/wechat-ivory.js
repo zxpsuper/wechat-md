@@ -6,7 +6,7 @@
 export const theme = {
   "name": "Ivory",
   "styles": {
-    "container": "max-width: 100%; margin: 0 auto; font-family: \"Literata\", Georgia, \"Times New Roman\", \"Songti SC\", serif; font-size: 16px; line-height: 1.65 !important; color: #333333 !important; background-color: #F0EDE6 !important; word-wrap: break-word;",
+    "container": "max-width: 100%; margin: 0 auto; padding: 24px 16px 48px 16px; font-family: \"Literata\", Georgia, \"Times New Roman\", \"Songti SC\", serif; font-size: 16px; line-height: 1.65 !important; color: #333333 !important; background-color: #F0EDE6 !important; word-wrap: break-word;",
     "h1": "font-size: 26px; font-weight: 700; color: #333333 !important; line-height: 1.3 !important; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 3px solid #000000; font-family: \"Inter\", -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;",
     "h2": "font-size: 22px; font-weight: 700; color: #333333 !important; line-height: 1.3 !important; margin: 24px 0 10px; font-family: \"Inter\", -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;",
     "h3": "font-size: 20px; font-weight: 700; color: #333333 !important; line-height: 1.35 !important; margin: 22px 0 10px; font-family: \"Inter\", -apple-system, \"PingFang SC\", \"Microsoft YaHei\", sans-serif;",

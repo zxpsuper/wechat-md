@@ -697,7 +697,7 @@ function wrapSectionIfNeeded(doc, styleConfig) {
 
   section.setAttribute(
     'style',
-    `background-color: ${containerBg}; padding: ${paddingMatch ? paddingMatch[1].trim() : '0'}; max-width: ${maxWidthMatch ? maxWidthMatch[1].trim() : '100%'}; margin: 0 auto; box-sizing: border-box; word-wrap: break-word;`
+    `background-color: ${containerBg}; padding: ${paddingMatch ? paddingMatch[1].trim() : '16px 8px'}; max-width: ${maxWidthMatch ? maxWidthMatch[1].trim() : '100%'}; margin: 0 auto; box-sizing: border-box; word-wrap: break-word;`
   );
 
   while (doc.body.firstChild) {
