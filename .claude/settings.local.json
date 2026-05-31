@@ -15,7 +15,8 @@
       "Bash(node _replace_example.js)",
       "Bash(node -e \"const fs=require\\('fs'\\);const c=fs.readFileSync\\('assets/scripts/main.js','utf8'\\);console.log\\(c.includes\\('loadDefaultExample'\\)\\);console.log\\('escape check - backticks:', \\(c.match\\(/\\\\\\\\\\\\\\\\\\\\`/g\\)||[]\\).length\\);\")",
       "Bash(node --check assets/scripts/main.js)",
-      "Bash(curl -s http://localhost:8080/assets/scripts/export/zhihu-clipboard-exporter.js)"
+      "Bash(curl -s http://localhost:8080/assets/scripts/export/zhihu-clipboard-exporter.js)",
+      "Bash(start index.html)"
     ]
   }
 }

@@ -1,9 +1,8 @@
 body.about-page {
   overflow: auto;
-  background:
-    radial-gradient(circle at 8% 10%, rgba(74, 124, 89, 0.12), transparent 42%),
-    radial-gradient(circle at 92% 0%, rgba(18, 18, 18, 0.06), transparent 38%),
-    var(--color-surface-raised);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 .section p{
   margin:8px 0;
@@ -15,11 +14,13 @@ body.about-page {
 }
 
 .about-hero {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-default);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 28px 26px;
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
   margin-bottom: 16px;
 }
 
@@ -44,7 +45,7 @@ body.about-page {
   height: 64px;
   border-radius: 999px;
   object-fit: cover;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-1);
   background: #fff;
 }
@@ -105,11 +106,13 @@ body.about-page {
 }
 
 .about-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-default);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 22px 24px;
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
   margin-bottom: 14px;
 }
 
@@ -143,10 +146,10 @@ body.about-page {
 }
 
 .tag-list li {
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 10px 12px;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfaf8 100%);
+  background: var(--glass-bg);
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
@@ -182,10 +185,12 @@ body.about-page {
 }
 
 .contact-item {
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 10px;
-  background: #fff;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .contact-item h3 {
@@ -199,7 +204,7 @@ body.about-page {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--glass-border);
   background: #fff;
 }
 .contact-fill .contact-item img {
@@ -210,8 +215,8 @@ body.about-page {
   margin-top: 12px;
   padding: 10px 12px;
   border-radius: 12px;
-  background: rgba(74, 124, 89, 0.08);
-  border: 1px dashed rgba(74, 124, 89, 0.35);
+  background: var(--color-accent-light);
+  border: 1px dashed var(--color-accent);
 }
 
 .social-placeholder p {
